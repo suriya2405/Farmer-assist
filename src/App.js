@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import AgriculturalSchemes from './components/AgriculturalSchemes';
+import ExpertDashboard from './components/ExpertDashboard';
+import ExpertRegisterForm from './components/ExpertRegisterForm';
+import HomePage from './components/HomePage';
+import LatestTechnologies from './components/LatestTechnologies';
+import QuerySubmissionForm from './components/QuerySubmissionForm';
+import WelcomePage from './components/WelcomePage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/query-submission" element={<QuerySubmissionForm />} />
+        <Route path="/agricultural-schemes" element={<AgriculturalSchemes />} />
+        <Route path="/latest-technologies" element={<LatestTechnologies />} />
+        <Route path="/expert-register" element={<ExpertRegisterForm />} />
+        <Route path="/expert-dashboard" element={<ExpertDashboard />} />
+        
+      
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
